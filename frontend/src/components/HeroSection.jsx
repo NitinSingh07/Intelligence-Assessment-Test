@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="relative bg-purple-50 overflow-hidden">
+    <div className="relative bg-gradient-to-r from-purple-50 to-white overflow-hidden">
       {/* Background Decoration */}
       <div className="max-w-7xl mx-auto relative">
         <div className="relative z-10 pb-8 bg-purple-100 dark:bg-purple-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 -mt-10 lg:-mt-16">
