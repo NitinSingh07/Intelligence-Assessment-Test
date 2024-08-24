@@ -41,41 +41,46 @@ const TestPage = () => {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* Heading Section
-      <div className="bg-white p-4 rounded-b-2xl shadow-lg mb-8 flex justify-center">
-        <h2 className="text-2xl font-semibold text-gray-800">Schedule Test</h2>
-      </div> */}
+    <div className="bg-purple-50 min-h-screen py-10">
+      {/* Heading Section */}
+      <div className="p-4 mb-6 flex justify-center">
+        <h2 className="text-4xl font-extrabold text-purple-800 tracking-wide">
+          Schedule Your Test
+        </h2>
+      </div>
 
       {/* Test Cards */}
-      <div className="space-y-8 p-2">
+      <div className="space-y-8 p-4">
         {classTests.map((test, index) => (
-          <div key={index} className="flex items-center">
+          <div
+            key={index}
+            className="flex items-start bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-purple-600 transition-transform transform "
+          >
             {/* Class Section */}
-            <div className="flex-shrink-0 flex flex-col items-center justify-center p-3">
-              <span className="text-lg font-semibold text-gray-700">Class</span>
-              <span className="text-md font-bold bg-[#79e93d] text-white p-3 rounded-full">
+            <div className="flex-shrink-0 flex flex-col items-center justify-center p-6 bg-purple-100">
+              <span className="text-lg font-semibold text-purple-800">
+                Class
+              </span>
+              <span className="text-3xl font-extrabold bg-purple-600 text-white p-4 rounded-full ">
                 {test.classNumber}
               </span>
             </div>
 
             {/* Test Information */}
-            <div className="ml-6 bg-white rounded-lg shadow-lg p-6 flex-1 border-l-4 border-blue-500 flex items-start">
+            <div className="flex-1 p-6">
               {/* Class Icon and Test Info */}
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center mb-4">
-                  <test.icon className="text-[#456789] text-4xl mr-6" />
-                  <h3 className="text-2xl font-semibold text-gray-800">
-                    {test.title}
-                  </h3>
-                </div>
-                <p className="text-gray-700 text-base leading-relaxed mb-4">
-                  {test.description}
-                </p>
-                <button className="bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-300 py-2 px-4 ml-4 rounded-l-2xl shadow-md hover:shadow-lg">
-                  Start Test
-                </button>
+              <div className="flex items-center mb-4">
+                <test.icon className="text-purple-600 text-5xl mr-4" />
+                <h3 className="text-2xl font-semibold text-gray-800">
+                  {test.title}
+                </h3>
               </div>
+              <p className="text-gray-700 text-base leading-relaxed mb-4">
+                {test.description}
+              </p>
+              <button className="bg-purple-600 text-white hover:bg-purple-700 transition-transform transform hover:scale-105 py-2 px-4 rounded-lg shadow-md hover:shadow-xl">
+                Start Test
+              </button>
             </div>
           </div>
         ))}
