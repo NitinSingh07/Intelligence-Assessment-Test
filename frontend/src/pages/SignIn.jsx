@@ -33,7 +33,7 @@ const SignIn = () => {
           <div className="mt-2 text-right">
             <Link
               to="/forgot-password" // Use Link for internal navigation
-              className="text-[#0099ff] text-xs md:text-sm no-underline hover:underline"
+              className="text-purple-400 text-xs md:text-sm no-underline hover:underline"
             >
               Forgot Password?
             </Link>
