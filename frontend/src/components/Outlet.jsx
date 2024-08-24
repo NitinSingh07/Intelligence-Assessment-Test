@@ -2,6 +2,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./footer";
 
 const Layout = () => {
   return (
@@ -10,6 +11,7 @@ const Layout = () => {
       <main>
         <Outlet /> {/* This renders the child routes */}
       </main>
+      <Footer />
     </>
   );
 };
