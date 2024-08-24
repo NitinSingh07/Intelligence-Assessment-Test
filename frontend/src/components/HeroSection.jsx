@@ -6,7 +6,7 @@ const HeroSection = () => {
     <div className="relative bg-purple-50 overflow-hidden">
       {/* Background Decoration */}
       <div className="max-w-7xl mx-auto relative">
-        <div className="relative z-10 pb-8 bg-purple-200 dark:bg-purple-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 -mt-10 lg:-mt-16">
+        <div className="relative z-10 pb-8 bg-purple-100 dark:bg-purple-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 -mt-10 lg:-mt-16">
           <svg
             className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-purple-300 dark:text-purple-900 transform translate-x-1/2"
             fill="currentColor"

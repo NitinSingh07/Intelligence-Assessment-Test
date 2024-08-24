@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative px-4 py-2 flex justify-between items-center bg-white border-b border-gray-200 shadow-md">
+    <nav className="relative px-4 py-2 flex justify-between items-center bg-purple-50 border-b border-gray-200 shadow-md">
       {/* Logo */}
       <Link
         className="flex items-center text-2xl font-bold text-purple-600"
