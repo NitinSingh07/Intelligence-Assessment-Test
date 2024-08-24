@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-purple-500 text-white py-8">
+    <div className="bg-purple-700 text-white py-8">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between">
           {/* About Section */}
@@ -10,7 +10,7 @@ const Footer = () => {
             <img
               src="/icon.png"
               alt="Company Logo"
-              className="h-12 w-auto mb-4"
+              className="h-12  w-auto mb-4"
             />
             {/* <p className="text-sm text-gray-300">
               We are dedicated to providing innovative solutions that enhance
@@ -92,7 +92,7 @@ const Footer = () => {
 
           {/* Contact Information Section */}
           <div className="mb-8 md:mb-0 md:w-1/3">
-            <h2 className="text-lg font-semibold mb-4 text-purple-950">
+            <h2 className="text-lg font-semibold mb-4 text-purple-200">
               Contact Information
             </h2>
             <div className="flex items-center mb-4">
@@ -140,7 +140,7 @@ const Footer = () => {
 
           {/* Links Section */}
           <div className="md:w-1/3">
-            <h2 className="text-lg text-purple-950 font-semibold mb-4">
+            <h2 className="text-lg text-purple-200 font-semibold mb-4">
               Quick Links
             </h2>
             <ul className="space-y-2">
@@ -180,8 +180,8 @@ const Footer = () => {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-gray-600 mt-8 pt-4 text-center">
-          <p className="text-sm text-gray-900">
+        <div className="border-t border-gray-200 mt-8 pt-4 text-center">
+          <p className="text-sm text-gray-200">
             &copy; {new Date().getFullYear()} Company Name. All rights reserved.
           </p>
         </div>

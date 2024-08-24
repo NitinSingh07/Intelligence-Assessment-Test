@@ -18,7 +18,7 @@ const Navbar = () => {
         <img
           src="/icon.png"
           alt="Logo"
-          className="h-10 w-auto bg-white shadow-sm"
+          className="h-10 ml-12 w-auto shadow-sm"
         />
       </Link>
 
