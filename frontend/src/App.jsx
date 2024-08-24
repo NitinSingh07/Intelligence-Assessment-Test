@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./components/Outlet";
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/test" element={<TestPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
         </Route>
 
         {/* Routes without Navbar */}
