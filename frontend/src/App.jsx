@@ -1,14 +1,26 @@
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import TestPage from "./pages/TestPage";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Layout from "./components/Outlet";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        {/* Routes with Navbar */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+
+        {/* Routes without Navbar */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
