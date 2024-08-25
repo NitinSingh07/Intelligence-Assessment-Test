@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Layout from "./components/Outlet";
 import Services from "./pages/Services";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         {/* Routes with Navbar */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/test" element={<TestPage />} />
+          <Route path="/testpage" element={<TestPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
@@ -25,6 +26,7 @@ function App() {
         {/* Routes without Navbar */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
       <Toaster />
     </>

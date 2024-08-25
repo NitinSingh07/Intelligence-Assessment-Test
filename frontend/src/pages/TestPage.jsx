@@ -6,9 +6,11 @@ import {
   FaChalkboardTeacher,
   FaGraduationCap,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const TestPage = () => {
-  // Array of test data for different classes
+  const navigate = useNavigate();
+
   const classTests = [
     {
       classNumber: 9,
@@ -17,28 +19,11 @@ const TestPage = () => {
       description:
         "This test is designed for Class 9 students, focusing on foundational coding skills and logic building.",
     },
-    {
-      classNumber: 10,
-      icon: FaBook,
-      title: "Science Mastery Test",
-      description:
-        "This test covers Class 10 science topics, aiming to assess students' understanding of core scientific principles.",
-    },
-    {
-      classNumber: 11,
-      icon: FaPencilAlt,
-      title: "Mathematics Skills Test",
-      description:
-        "Tailored for Class 11 students, this test evaluates mathematical problem-solving skills and concepts.",
-    },
-    {
-      classNumber: 12,
-      icon: FaChalkboardTeacher,
-      title: "Comprehensive Knowledge Test",
-      description:
-        "Aimed at Class 12 students, this test assesses overall knowledge across various subjects in preparation for exams.",
-    },
   ];
+
+  const handleStartTest = () => {
+    navigate("/test");
+  };
 
   return (
     <div className="bg-purple-50 min-h-screen py-10">
@@ -54,7 +39,7 @@ const TestPage = () => {
         {classTests.map((test, index) => (
           <div
             key={index}
-            className="flex items-start bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-purple-600 transition-transform transform "
+            className="flex items-start bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-purple-600 transition-transform transform"
           >
             {/* Class Section */}
             <div className="flex-shrink-0 flex flex-col items-center justify-center p-6 bg-purple-100">
@@ -78,7 +63,10 @@ const TestPage = () => {
               <p className="text-gray-700 text-base leading-relaxed mb-4">
                 {test.description}
               </p>
-              <button className="bg-purple-600 text-white hover:bg-purple-700 transition-transform transform hover:scale-105 py-2 px-4 rounded-lg shadow-md hover:shadow-xl">
+              <button
+                onClick={handleStartTest}
+                className="bg-purple-600 text-white hover:bg-purple-700 transition-transform transform hover:scale-105 py-2 px-4 rounded-lg shadow-md hover:shadow-xl"
+              >
                 Start Test
               </button>
             </div>

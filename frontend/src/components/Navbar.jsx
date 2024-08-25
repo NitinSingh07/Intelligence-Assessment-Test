@@ -9,16 +9,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative px-4 py-2 flex justify-between items-center bg-gradient-to-r from-purple-50 to-white border-b border-gray-200 shadow-md">
+    <nav className="relative px-4 py-4 flex justify-between items-center bg-gradient-to-r from-purple-50 to-white border-b border-gray-200 shadow-md">
       {/* Logo */}
-      <Link
-        className="flex items-center text-2xl font-bold text-purple-600"
-        to="/"
-      >
+      <Link to="/">
         <img
           src="/icon.png"
           alt="Logo"
-          className="h-10 ml-12 w-auto shadow-sm"
+          className="h-8 w-auto sm:h-12 ml-4 sm:ml-6 md:ml-8 lg:ml-12 shadow-sm"
         />
       </Link>
 
@@ -79,7 +76,7 @@ const Navbar = () => {
       {/* Right Side Icons */}
       <div className="hidden lg:flex items-center">
         <Link to="/test">
-          <button className="py-2 px-4 m-1 text-center bg-purple-700 border rounded-md text-white hover:bg-purple-600 transition duration-200">
+          <button className="py-2 px-4 m-1 text-center bg-gradient-to-r from-purple-600 to-indigo-700 border border-transparent rounded-md text-white shadow-md hover:shadow-lg transform hover:scale-105 transition duration-200 ease-in-out">
             Take Assessment
           </button>
         </Link>
@@ -90,8 +87,12 @@ const Navbar = () => {
         <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50">
           <nav className="fixed bg-white top-0 left-0 bottom-0 w-5/6 max-w-sm py-6 px-6 border-r border-gray-200 shadow-lg">
             <div className="flex items-center mb-8">
-              <Link className="text-2xl font-bold text-purple-600" to="/">
-                Logo
+              <Link to="/">
+                <img
+                  src="/icon.png"
+                  alt="Logo"
+                  className="h-8 w-auto sm:h-12 ml-4 sm:ml-6 md:ml-8 lg:ml-12 shadow-sm"
+                />
               </Link>
               <button className="ml-auto p-2" onClick={toggleMobileMenu}>
                 <svg
