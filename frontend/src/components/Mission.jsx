@@ -22,7 +22,7 @@ const MissionSection = () => {
   return (
     <div
       id="missionSection"
-      className="bg-gradient-to-r from-purple-50 to-white py-16 sm:py-24"
+      className="bg-gradient-to-r from-purple-50 to-indigo-100 py-16 sm:py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">

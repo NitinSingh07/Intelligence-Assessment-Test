@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-purple-700 text-white py-8">
+    <div className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white py-8 shadow-lg rounded-lg">
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between">
           {/* About Section */}

@@ -45,7 +45,7 @@ const TestPage = () => {
       {/* Heading Section */}
       <div className="p-4 mb-6 flex justify-center">
         <h2 className="text-4xl font-extrabold text-purple-800 tracking-wide">
-          Schedule Your Test
+          Evaluate Yourself
         </h2>
       </div>
 
