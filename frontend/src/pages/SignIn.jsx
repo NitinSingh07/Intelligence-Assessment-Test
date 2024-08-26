@@ -1,7 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Importing Link
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate for redirection
+import axios from "axios"; // For making HTTP requests
+import { toast } from "react-toastify"; // For showing notifications
 
 const SignIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    //  console.log("hiding")
+    try {
+      // Replace with your API endpoint
+      console.log(email,password);
+      const response = await axios.post("http://localhost:80/signin", {
+        email,
+        password,
+      });
+     
+      const { token } = response.data;
+      localStorage.setItem("authToken", token); // Save token in local storage
+      toast.success("Login successful!");
+      // If login is successful
+      if (response.status === 200) {
+        toast.success("Login successful!");
+        // Navigate to dashboard or home page
+        navigate("/test");
+      }
+    } catch (error) {
+      // Handle login error
+      toast.error("Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-purple-100 to-purple-400">
       <div className="max-w-[90%] md:max-w-[400px] bg-gradient-to-b from-white to-[#f1f5f9] rounded-[30px] p-5 md:p-8 border-4 border-white shadow-lg shadow-[rgba(0,0,0,0.1)_0px_10px_20px_-10px] m-5 mx-auto">
@@ -13,7 +49,7 @@ const SignIn = () => {
         <div className="text-center font-bold text-[28px] md:text-[32px] text-purple-600">
           Sign In
         </div>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit}>
           <input
             required
             className="w-full bg-white p-3 md:p-4 rounded-[10px] md:rounded-[15px] mt-4 shadow-sm shadow-[#cceeff_0px_4px_6px_-1px] border-2 border-transparent focus:outline-none focus:border-[#12B1D1] focus:shadow-[0_0_10px_#12B1D1]"
@@ -21,6 +57,8 @@ const SignIn = () => {
             name="email"
             id="email"
             placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             required
@@ -29,20 +67,25 @@ const SignIn = () => {
             name="password"
             id="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <div className="mt-2 text-right">
             <Link
-              to="/forgot-password" // Use Link for internal navigation
+              to="/forgot-password"
               className="text-purple-400 text-xs md:text-sm no-underline hover:underline"
             >
               Forgot Password?
             </Link>
           </div>
           <button
-            className="block w-full font-semibold bg-purple-500 text-white py-2 md:py-3 mt-5 rounded-[10px] md:rounded-[15px] shadow-md shadow-[rgba(16,137,211,0.3)_0px_10px_20px_-5px] transition-transform duration-200 transform hover:scale-105 active:scale-95"
+            className={`block w-full font-semibold bg-purple-500 text-white py-2 md:py-3 mt-5 rounded-[10px] md:rounded-[15px] shadow-md shadow-[rgba(16,137,211,0.3)_0px_10px_20px_-5px] transition-transform duration-200 transform hover:scale-105 active:scale-95 ${
+              loading ? "opacity-50" : ""
+            }`}
             type="submit"
+            disabled={loading}
           >
-            Sign In
+            {loading ? "Signing In..." : "Sign In"}
           </button>
         </form>
         <div className="mt-6">
@@ -76,19 +119,17 @@ const SignIn = () => {
                 className="fill-white w-6 h-6"
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
-                viewBox="0 0 512 512"
+                viewBox="0 0 448 512"
               >
-                <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+                <path d="M224 202.66a53.34 53.34 0 1 0 53.34 53.34 53.34 53.34 0 0 0-53.34-53.34zm124.71 7.51c-23.34 0-46.61 13.49-55.71 23.78-10.11-2.54-27.61-8.72-69.08-8.72-41.69 0-59.16 6.19-69.26 8.73-9.07-10.29-32.36-23.78-55.73-23.78C38.48 210.17 0 248.5 0 290.11v76.72C0 428.3 83.66 512 186.67 512h74.66C364.35 512 448 428.3 448 366.83v-76.72c0-41.61-38.48-79.94-99.29-79.94zm27.45 156.67c0 56.82-58.07 102.52-129.09 102.52h-47.14c-71 0-129.09-45.7-129.09-102.52V299.77c0-56.82 58.07-102.52 129.09-102.52h47.14c71.02 0 129.09 45.7 129.09 102.52z"></path>
               </svg>
             </button>
           </div>
         </div>
-        <span className="block text-center mt-6">
-          <Link
-            to="/signup" // Use Link for internal navigation
-            className="text-purple-500 text-sm md:text-base hover:underline"
-          >
-            Don't have an account? Sign Up
+        <span className="text-center mt-6 text-sm md:text-base">
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-purple-600 font-semibold">
+            Sign Up
           </Link>
         </span>
       </div>
