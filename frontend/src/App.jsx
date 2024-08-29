@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import Layout from "./components/Outlet";
 import Services from "./pages/Services";
 import Test from "./pages/Test";
+import Hr from "./pages/hr";
+import MyBarChart from "./pages/bargraph";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/hr" element={<Hr />} />
+        <Route path="/graph" element={<MyBarChart />} />
       </Routes>
       <Toaster />
     </>
