@@ -1,5 +1,5 @@
 const express = require("express");
-const { signup, signin } = require("../controllers/signINUP"); 
+const { signup, signin,storeOptions, saveScores } = require("../controllers/signINUP"); 
 
 const router = express.Router();
 
@@ -8,5 +8,8 @@ router.post("/signup", signup);
 
 // Route for signin (login)
 router.post("/signin", signin);
+
+router.post("/store-options", storeOptions);
+router.post("/save-scores", saveScores);
 
 module.exports = router;

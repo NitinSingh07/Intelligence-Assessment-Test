@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt= require("bcrypt");
+const bcrypt = require("bcrypt");
 // Define the student schema
 const studentSchema = new mongoose.Schema(
   {
@@ -24,6 +24,29 @@ const studentSchema = new mongoose.Schema(
     standard: {
       type: String,
       required: true,
+    },
+    options: {
+      type: [String], // Array of strings to store options
+      default: [], // Default value is an empty array
+    },
+    scores: {
+      type: [
+        {
+          section: { type: String, required: true },
+          score: { type: Number, required: true, default: 0 },
+        },
+      ],
+      default: [
+        { section: "Verbal", score: 0 },
+        { section: "Mathematical", score: 0 },
+        { section: "Musical", score: 0 },
+        { section: "Visual", score: 0 },
+        { section: "Bodily", score: 0 },
+        { section: "Interpersonal", score: 0 },
+        { section: "Intrapersonal", score: 0 },
+        { section: "Naturalistic", score: 0 },
+      ], 
+      _id: false,
     },
   },
   {
