@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios  from "axios";
 const questions = [
   {
     question: "Q1. Which subject do you enjoy the most?",
@@ -226,13 +226,31 @@ function Test() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     console.log("All selected options:");
     selectedOptions.forEach((option, index) => {
       console.log(`Question ${index + 1}: ${option}`);
     });
+    const token = localStorage.getItem("authToken");
 
-    setShowPopup(true); 
+    const dataToStore = {
+      selectedOptions: selectedOptions,
+      timestamp: new Date(),
+    };
+    try {
+      const response = await axios.post("http://localhost:80/store-options", dataToStore, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      });
+      console.log("Success:", response.data);
+      setShowPopup(true); // Show success popup or message
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    setShowPopup(false); 
   };
 
   const handleCheckScore = () => {
